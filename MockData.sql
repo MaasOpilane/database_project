@@ -1,149 +1,265 @@
+INSERT INTO Industry (industry_name, sector, country)
+VALUES
+    ('Technology', 'IT', 'Netherlands'),
+    ('Healthcare', 'healthcare', 'Netherlands'),
+    ('Finance', 'accounting', 'Poland'),
+    ('Manufacturing', 'industrial', 'Belgium'),
+    ('Education', 'education', 'Poland');
 
-INSERT INTO Industry (industry_id, industry_name, sector, country) VALUES
-(1, 'Software Development', 'Technology', 'USA'),
-(2, 'Automotive Manufacturing', 'Manufacturing', 'Germany'),
-(3, 'Retail Banking', 'Finance', 'UK'),
-(4, 'Hospital Services', 'Healthcare', 'Canada'),
-(5, 'E-commerce', 'Retail', 'USA'),
-(6, 'Telecommunications', 'Technology', 'South Korea'),
-(7, 'Insurance', 'Finance', 'USA'),
-(8, 'Pharmaceuticals', 'Healthcare', 'Switzerland'),
-(9, 'Logistics & Freight', 'Transportation', 'Netherlands'),
-(10, 'Renewable Energy', 'Energy', 'Denmark'),
-(11, 'Aerospace Manufacturing', 'Manufacturing', 'France'),
-(12, 'Agriculture Technology', 'Agriculture', 'Australia'),
-(13, 'Media & Streaming', 'Entertainment', 'USA'),
-(14, 'Cybersecurity Services', 'Technology', 'Israel'),
-(15, 'Hospitality & Travel', 'Hospitality', 'Spain');
+INSERT INTO Company (industry_id, company_name, company_size)
+VALUES
+    (1, 'TechSolutionsNL', 820),
+    (1, 'CodeCraft Amsterdam', 340),
+    (1, 'CloudWorks Netherlands', 560),
+    (1, 'DigitalFlow NL', 190),
 
-INSERT INTO Company (company_id, industry_id, company_name, company_size) VALUES
-(1, 1, 'Nexora Software', 850),
-(2, 2, 'AutoWerks GmbH', 4200),
-(3, 3, 'Union Trust Bank', 12000),
-(4, 4, 'St. Mary General Hospital', 3100),
-(5, 5, 'ShopStream Inc.', 620),
-(6, 6, 'Hanwave Telecom', 7800),
-(7, 7, 'Meridian Insurance Group', 5400),
-(8, 8, 'Cortessa Pharmaceuticals', 9100),
-(9, 9, 'FreightLynx BV', 2600),
-(10, 10, 'SolarNord A/S', 1450),
-(11, 11, 'AeroFrance Systems', 15200),
-(12, 12, 'AgriSense Technologies', 380),
-(13, 13, 'StreamCast Media', 2200),
-(14, 14, 'ShieldPoint Security', 940),
-(15, 15, 'Coastline Hotels Group', 6300),
-(16, 1, 'Bytewave Labs', 210),
-(17, 5, 'CartNova Retail', 1580),
-(18, 3, 'Highgate Financial', 3900),
-(19, 4, 'Riverside Medical Center', 2750),
-(20, 10, 'GreenVolt Energy', 890);
+    (2, 'Maastricht Hospital', 1200),
+    (2, 'HealthCare Limburg', 480),
+    (2, 'MedTech Netherlands', 275),
+    (2, 'CareConnect NL', 150),
 
-INSERT INTO AI_Technology (technology_id, technology_name, technology_type) VALUES
-(1, 'GPT-based Copilot', 'Generative AI'),
-(2, 'Predictive Maintenance ML', 'Machine Learning'),
-(3, 'Fraud Detection Engine', 'Anomaly Detection'),
-(4, 'Diagnostic Imaging AI', 'Computer Vision'),
-(5, 'Recommendation Engine', 'Machine Learning'),
-(6, 'Chatbot Support Assistant', 'Natural Language Processing'),
-(7, 'Autonomous Quality Inspection', 'Computer Vision'),
-(8, 'Demand Forecasting Model', 'Machine Learning'),
-(9, 'Route Optimization AI', 'Optimization'),
-(10, 'Voice Transcription Engine', 'Speech Recognition'),
-(11, 'Document Summarization AI', 'Generative AI'),
-(12, 'Threat Detection System', 'Anomaly Detection'),
-(13, 'Dynamic Pricing Engine', 'Machine Learning'),
-(14, 'Crop Health Monitoring AI', 'Computer Vision'),
-(15, 'HR Resume Screening AI', 'Natural Language Processing');
+    (3, 'Polish Finance Group', 950),
+    (3, 'Warsaw Accounting Partners', 320),
+    (3, 'Baltic Financial Services', 610),
+    (3, 'Krakow Investment Group', 180),
 
-INSERT INTO Company_AI_Technology (company_id, technology_id, adoption_date, implementation_status) VALUES
-(1, 1, '2023-03-15', 'Fully Deployed'),
-(2, 2, '2022-11-01', 'Fully Deployed'),
-(3, 3, '2023-06-20', 'Fully Deployed'),
-(4, 4, '2024-01-10', 'Pilot'),
-(5, 5, '2023-09-05', 'Fully Deployed'),
-(6, 6, '2023-02-18', 'Fully Deployed'),
-(7, 3, '2022-08-30', 'Fully Deployed'),
-(8, 4, '2023-12-01', 'Pilot'),
-(9, 9, '2023-05-22', 'Fully Deployed'),
-(10, 2, '2024-02-14', 'Pilot'),
-(11, 7, '2022-06-10', 'Fully Deployed'),
-(12, 14, '2023-10-03', 'Pilot'),
-(13, 5, '2021-11-19', 'Fully Deployed'),
-(14, 12, '2023-07-27', 'Fully Deployed'),
-(15, 13, '2024-03-09', 'Pilot'),
-(16, 1, '2024-04-01', 'Pilot'),
-(17, 8, '2023-01-25', 'Fully Deployed'),
-(18, 3, '2022-09-14', 'Fully Deployed'),
-(19, 4, '2023-11-30', 'Fully Deployed'),
-(20, 2, '2023-08-08', 'Pilot'),
-(1, 11, '2024-05-12', 'Pilot'),
-(3, 15, '2023-04-04', 'Fully Deployed');
+    (4, 'Belgian Industrial Works', 1100),
+    (4, 'Brussels Manufacturing', 670),
+    (4, 'Flanders Engineering', 430),
+    (4, 'Antwerp Production Group', 820),
 
-INSERT INTO Occupation (occupation_id, industry_id, occupation_name, ai_exposure_score) VALUES
-(1, 1, 'Software Engineer', 0.78),
-(2, 2, 'Assembly Line Technician', 0.42),
-(3, 3, 'Loan Officer', 0.61),
-(4, 4, 'Radiologist', 0.55),
-(5, 5, 'Customer Service Rep', 0.83),
-(6, 6, 'Network Operations Engineer', 0.49),
-(7, 7, 'Insurance Underwriter', 0.67),
-(8, 8, 'Clinical Research Associate', 0.38),
-(9, 9, 'Logistics Coordinator', 0.71),
-(10, 10, 'Solar Systems Technician', 0.33),
-(11, 11, 'Aerospace Quality Engineer', 0.52),
-(12, 12, 'Agronomist', 0.29),
-(13, 13, 'Content Editor', 0.74),
-(14, 14, 'Security Analyst', 0.58),
-(15, 15, 'Hotel Reservations Agent', 0.69),
-(16, 1, 'Data Scientist', 0.62),
-(17, 3, 'Bank Teller', 0.80),
-(18, 4, 'Medical Records Clerk', 0.76);
+    (5, 'Polish Education Group', 750),
+    (5, 'Warsaw Learning Institute', 320),
+    (5, 'Krakow Academic Services', 185),
+    (5, 'FutureLearn Poland', 240);
 
-INSERT INTO Skill (skill_id, occupation_id, skill_name, ai_complementarity_rating) VALUES
-(1, 1, 'Python Programming', 0.90),
-(2, 1, 'Code Review', 0.75),
-(3, 2, 'Machine Calibration', 0.40),
-(4, 3, 'Credit Risk Analysis', 0.65),
-(5, 4, 'Image Interpretation', 0.58),
-(6, 5, 'Conflict Resolution', 0.35),
-(7, 6, 'Network Troubleshooting', 0.55),
-(8, 7, 'Actuarial Assessment', 0.60),
-(9, 8, 'Clinical Trial Design', 0.45),
-(10, 9, 'Supply Chain Planning', 0.68),
-(11, 10, 'Electrical Systems Repair', 0.30),
-(12, 11, 'Materials Testing', 0.50),
-(13, 12, 'Soil Analysis', 0.25),
-(14, 13, 'Narrative Storytelling', 0.20),
-(15, 14, 'Threat Intelligence', 0.72),
-(16, 15, 'Guest Relations Management', 0.33),
-(17, 16, 'Statistical Modeling', 0.88),
-(18, 16, 'Data Visualization', 0.70),
-(19, 17, 'Cash Handling', 0.20),
-(20, 18, 'Medical Coding', 0.55);
+INSERT INTO Occupation
+(industry_id, occupation_name, ai_exposure_score)
+VALUES
 
-INSERT INTO Worker (worker_id, company_id, occupation_id, salary) VALUES
-(1, 1, 1, 98000.00),
-(2, 2, 2, 52000.00),
-(3, 3, 3, 71000.00),
-(4, 4, 4, 210000.00),
-(5, 5, 5, 41000.00),
-(6, 6, 6, 87000.00),
-(7, 7, 7, 76000.00),
-(8, 8, 8, 68000.00),
-(9, 9, 9, 59000.00),
-(10, 10, 10, 54000.00),
-(11, 11, 11, 92000.00),
-(12, 12, 12, 47000.00),
-(13, 13, 13, 61000.00),
-(14, 14, 14, 105000.00),
-(15, 15, 15, 38000.00),
-(16, 16, 16, 118000.00),
-(17, 17, 5, 43000.00),
-(18, 18, 17, 39000.00),
-(19, 19, 18, 45000.00),
-(20, 20, 10, 56000.00),
-(21, 1, 16, 122000.00),
-(22, 3, 3, 73000.00),
-(23, 5, 5, 40500.00),
-(24, 7, 7, 79000.00),
-(25, 11, 11, 95000.00);
+    (1, 'Software Developer', 82.50),
+    (1, 'Data Analyst', 88.00),
+    (1, 'IT Project Manager', 68.00),
+
+    (2, 'Nurse', 38.00),
+    (2, 'Medical Assistant', 45.00),
+    (2, 'Healthcare Data Analyst', 78.50),
+
+    (3, 'Accountant', 85.50),
+    (3, 'Financial Analyst', 91.00),
+    (3, 'Risk Manager', 72.00),
+
+    (4, 'Production Engineer', 70.00),
+    (4, 'Machine Operator', 82.00),
+    (4, 'Quality Control Specialist', 64.00),
+
+    (5, 'Teacher', 42.00),
+    (5, 'Education Coordinator', 55.00),
+    (5, 'Instructional Designer', 73.00);
+
+INSERT INTO Skill
+(occupation_id, skill_name, ai_complementarity_rating)
+VALUES
+
+    (1, 'Programming', 88.00),
+    (1, 'Problem Solving', 94.00),
+    (1, 'System Design', 85.00),
+
+    (2, 'Data Analysis', 92.00),
+    (2, 'Statistics', 89.00),
+    (2, 'Data Visualization', 86.00),
+
+    (3, 'Project Management', 82.00),
+    (3, 'Communication', 91.00),
+
+    (4, 'Patient Care', 95.00),
+    (4, 'Clinical Communication', 93.00),
+
+    (5, 'Patient Administration', 86.00),
+    (5, 'Medical Documentation', 80.00),
+
+    (6, 'Healthcare Analytics', 91.00),
+    (6, 'Statistics', 88.00),
+    (6, 'Data Management', 90.00),
+
+    (7, 'Financial Reporting', 84.00),
+    (7, 'Bookkeeping', 76.00),
+    (7, 'Attention to Detail', 92.00),
+
+    (8, 'Financial Modeling', 89.00),
+    (8, 'Data Analysis', 93.00),
+    (8, 'Forecasting', 87.00),
+
+    (9, 'Risk Analysis', 91.00),
+    (9, 'Financial Risk Assessment', 94.00),
+
+    (10, 'Engineering Design', 84.00),
+    (10, 'Process Optimization', 88.00),
+    (10, 'Problem Solving', 90.00),
+
+    (11, 'Machine Operation', 75.00),
+    (11, 'Technical Troubleshooting', 82.00),
+
+    (12, 'Quality Assurance', 87.00),
+    (12, 'Data Analysis', 85.00),
+
+    (13, 'Communication', 94.00),
+    (13, 'Classroom Management', 88.00),
+    (13, 'Critical Thinking', 91.00),
+
+    (14, 'Organization', 89.00),
+    (14, 'Communication', 93.00),
+
+    (15, 'Curriculum Design', 91.00),
+    (15, 'Digital Learning', 88.00);
+
+INSERT INTO Worker
+(company_id, occupation_id, salary)
+VALUES
+
+    (1, 1, 58000.00),
+    (1, 1, 64000.00),
+    (1, 2, 61000.00),
+    (1, 3, 72000.00),
+
+    (2, 1, 55000.00),
+    (2, 2, 59000.00),
+    (2, 3, 68000.00),
+
+    (3, 1, 62000.00),
+    (3, 2, 67000.00),
+    (3, 2, 71000.00),
+
+    (4, 1, 52000.00),
+    (4, 3, 65000.00),
+
+    (5, 4, 48000.00),
+    (5, 4, 52000.00),
+    (5, 5, 43000.00),
+    (5, 6, 61000.00),
+
+    (6, 4, 47000.00),
+    (6, 5, 42000.00),
+    (6, 6, 58000.00),
+
+    (7, 4, 46000.00),
+    (7, 6, 62000.00),
+
+    (8, 4, 49000.00),
+    (8, 5, 44000.00),
+
+    (9, 7, 54000.00),
+    (9, 8, 72000.00),
+    (9, 9, 78000.00),
+
+    (10, 7, 51000.00),
+    (10, 8, 69000.00),
+
+    (11, 8, 75000.00),
+    (11, 9, 82000.00),
+
+    (12, 7, 49000.00),
+    (12, 8, 68000.00),
+
+    (13, 10, 65000.00),
+    (13, 11, 46000.00),
+    (13, 12, 54000.00),
+
+    (14, 10, 69000.00),
+    (14, 11, 48000.00),
+
+    (15, 11, 45000.00),
+    (15, 12, 52000.00),
+
+    (16, 10, 71000.00),
+    (16, 12, 55000.00),
+
+    (17, 13, 42000.00),
+    (17, 14, 48000.00),
+
+    (18, 13, 44000.00),
+    (18, 15, 53000.00),
+
+    (19, 13, 41000.00),
+    (19, 14, 47000.00),
+
+    (20, 13, 43000.00),
+    (20, 15, 55000.00);
+
+INSERT INTO AI_Technology
+(technology_name, technology_type)
+VALUES
+    ('ChatGPT', 'Generative AI'),
+    ('Microsoft Copilot', 'Generative AI'),
+    ('GitHub Copilot', 'AI Coding Assistant'),
+    ('Google Gemini', 'Generative AI'),
+    ('TensorFlow', 'Machine Learning Framework'),
+    ('Microsoft Azure AI', 'AI Platform'),
+    ('Amazon Bedrock', 'AI Platform'),
+    ('IBM watsonx', 'Enterprise AI'),
+    ('Tableau AI', 'Data Analytics AI'),
+    ('UiPath AI', 'Process Automation');
+
+INSERT INTO Company_AI_Technology
+(company_id, technology_id, adoption_date, implementation_status)
+VALUES
+
+    (1, 1, '2024-02-15', 'Active'),
+    (1, 3, '2024-04-10', 'Active'),
+    (1, 6, '2024-06-20', 'Active'),
+
+    (2, 1, '2024-03-01', 'Active'),
+    (2, 3, '2024-03-15', 'Active'),
+
+    (3, 2, '2024-01-20', 'Active'),
+    (3, 6, '2024-05-10', 'Active'),
+    (3, 7, '2024-08-01', 'Testing'),
+
+    (4, 4, '2024-04-12', 'Testing'),
+    (4, 9, '2024-07-15', 'Active'),
+
+    (5, 2, '2024-02-01', 'Active'),
+    (5, 4, '2024-06-01', 'Testing'),
+    (5, 8, '2024-09-10', 'Testing'),
+
+    (6, 2, '2024-03-20', 'Active'),
+    (6, 9, '2024-05-25', 'Active'),
+
+    (7, 5, '2023-11-15', 'Active'),
+    (7, 6, '2024-02-10', 'Active'),
+
+    (8, 2, '2024-07-01', 'Testing'),
+
+    (9, 2, '2024-01-15', 'Active'),
+    (9, 9, '2024-03-10', 'Active'),
+    (9, 10, '2024-05-20', 'Active'),
+
+    (10, 1, '2024-02-20', 'Testing'),
+    (10, 10, '2024-04-15', 'Active'),
+
+    (11, 2, '2024-01-30', 'Active'),
+    (11, 8, '2024-06-12', 'Active'),
+
+    (12, 9, '2024-08-20', 'Testing'),
+
+    (13, 5, '2023-10-10', 'Active'),
+    (13, 10, '2024-01-15', 'Active'),
+
+    (14, 6, '2024-03-05', 'Active'),
+    (14, 7, '2024-07-20', 'Testing'),
+
+    (15, 5, '2024-02-25', 'Active'),
+    (15, 3, '2024-05-15', 'Active'),
+
+    (16, 10, '2024-04-30', 'Active'),
+
+    (17, 1, '2024-01-10', 'Active'),
+    (17, 2, '2024-03-15', 'Testing'),
+
+    (18, 4, '2024-05-01', 'Active'),
+    (18, 9, '2024-06-20', 'Active'),
+
+    (19, 2, '2024-02-15', 'Testing'),
+
+    (20, 4, '2024-04-01', 'Active'),
+    (20, 2, '2024-05-10', 'Active');
