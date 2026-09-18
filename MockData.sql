@@ -55,7 +55,7 @@ INSERT INTO AI_Technology (technology_id, technology_name, technology_type) VALU
 (14, 'Crop Health Monitoring AI', 'Computer Vision'),
 (15, 'HR Resume Screening AI', 'Natural Language Processing');
 
-INSERT INTO Company_AI_Technology (company_id, technology_id, adaption_date, implementation_status) VALUES
+INSERT INTO Company_AI_Technology (company_id, technology_id, adoption_date, implementation_status) VALUES
 (1, 1, '2023-03-15', 'Fully Deployed'),
 (2, 2, '2022-11-01', 'Fully Deployed'),
 (3, 3, '2023-06-20', 'Fully Deployed'),
@@ -147,51 +147,3 @@ INSERT INTO Worker (worker_id, company_id, occupation_id, salary) VALUES
 (23, 5, 5, 40500.00),
 (24, 7, 7, 79000.00),
 (25, 11, 11, 95000.00);
-
-INSERT INTO Project (project_id, project_name) VALUES
-(1, 'AI Copilot Rollout'),
-(2, 'Predictive Maintenance Upgrade'),
-(3, 'Fraud Model Retraining'),
-(4, 'Diagnostic AI Pilot'),
-(5, 'Personalization Revamp'),
-(6, 'Chatbot Deployment Phase 2'),
-(7, 'Quality Inspection Automation'),
-(8, 'Demand Forecasting Rollout'),
-(9, 'Fleet Route Optimization'),
-(10, 'Call Center Transcription Pilot'),
-(11, 'Contract Summarization Tool'),
-(12, 'Network Threat Detection Upgrade'),
-(13, 'Dynamic Pricing Experiment'),
-(14, 'Crop Monitoring Field Trial'),
-(15, 'Resume Screening Rollout'),
-(16, 'Data Platform Modernization'),
-(17, 'Customer Churn Prediction');
-
-INSERT INTO Project_Assignment (worker_id, project_id) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(1, 5),
-(6, 12),
-(7, 13),
-(8, 4),
-(9, 9),
-(10, 2),
-(11, 7),
-(12, 14),
-(13, 5),
-(14, 12),
-(15, 6),
-(16, 16),
-(17, 6),
-(18, 3),
-(19, 4),
-(20, 2),
-(21, 16),
-(21, 17),
-(22, 3),
-(23, 5),
-(24, 13),
-(25, 7);
