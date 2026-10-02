@@ -19,6 +19,7 @@ CREATE TABLE Occupation(
     occupation_id INT AUTO_INCREMENT PRIMARY KEY,
     industry_id INT NOT NULL,
     occupation_name VARCHAR(100) NOT NULL, 
+    onetsoc_code VARCHAR(10),
     ai_exposure_score DECIMAL(5,2)
         CHECK (ai_exposure_score BETWEEN 0 AND 100),
 
@@ -72,24 +73,19 @@ CREATE TABLE Company_AI_Technology (
         REFERENCES AI_Technology(technology_id)
 );
 
-CREATE TABLE Job_Title (
-    job_title_id INT AUTO_INCREMENT PRIMARY KEY,
-    occupation_id INT NOT NULL,
+CREATE TABLE job_titles (
+    onetsoc_code VARCHAR(10) NOT NULL,
     job_title VARCHAR(250) NOT NULL,
     short_title VARCHAR(150),
+    sources VARCHAR(50) NOT NULL,
 
-    FOREIGN KEY (occupation_id)
-        REFERENCES Occupation(occupation_id)
+    FOREIGN KEY (onetsoc_code)
+        REFERENCES Occupation(onetsoc_code)
 );
 
-CREATE TABLE Software_Skill (
-    software_skill_id INT AUTO_INCREMENT PRIMARY KEY,
-    occupation_id INT NOT NULL,
-    software_name VARCHAR(150) NOT NULL,
-    element_id VARCHAR(20),
-    hot_technology BOOLEAN,
-    in_demand BOOLEAN,
-
-    FOREIGN KEY (occupation_id)
-        REFERENCES Occupation(occupation_id)
-);
+CREATE TABLE software_skills (
+  onetsoc_code CHARACTER(10) NOT NULL,
+  workplace_example CHARACTER VARYING(150) NOT NULL,
+  element_id CHARACTER VARYING(20) NOT NULL,
+  hot_technology CHARACTER(1) NOT NULL,
+  in_demand CHARACTER(1) NOT NULL);

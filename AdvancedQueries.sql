@@ -31,3 +31,24 @@ JOIN Company_AI_Technology cat
 JOIN AI_Technology a
     ON cat.technology_id = a.technology_id
 ORDER BY c.company_name;
+
+--Occupations with the most hot technologies
+SELECT
+    o.occupation_name,
+    COUNT(*) AS hot_technologies
+FROM Occupation o
+JOIN Software_Skill ss
+    ON o.occupation_id = ss.occupation_id
+WHERE ss.hot_technology = TRUE
+GROUP BY o.occupation_id, o.occupation_name
+ORDER BY hot_technologies DESC;
+
+
+-- In-demand software skills by occupation
+SELECT
+    software_name,
+    COUNT(DISTINCT occupation_id) AS occupations
+FROM Software_Skill
+WHERE in_demand = TRUE
+GROUP BY software_name
+ORDER BY occupations DESC;
