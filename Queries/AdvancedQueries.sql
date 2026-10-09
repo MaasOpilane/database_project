@@ -98,3 +98,17 @@ JOIN software_skills ss
     ON o.onetsoc_code = ss.onetsoc_code
 ORDER BY o.occupation_name, ss.workplace_example
 LIMIT 100;
+
+-- Workers earning high salaries who also faces high AI exposure by Michelle Zefanya
+SELECT
+    w.worker_id, 
+    w.salary,
+    o.occupation_name,
+    o.ai_exposure_score
+FROM Worker w
+JOIN Occupation o
+    ON w.occupation_id = o.occupation_id
+WHERE o.ai_exposure_score >= 70
+    AND w.salary > (SELECT AVG(salary) FROM Worker)
+ORDER BY w.salary DESC;
+
