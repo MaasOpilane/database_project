@@ -7,12 +7,12 @@ The salaries, AI adoption records, skills, and AI exposure scores in `data/MockD
 ## Repository Layout
 
 ```text
-schema/                 Core project table definitions
-data/                   Mock records and versioned O*NET source data
-	onet31.0/              O*NET 31.0 SQL files and source note
-queries/                Basic and advanced example queries
-docs/                   Assignment briefs and entity-relationship diagram
-README.md               Setup, data, and query guide
+schema/                    Core project table definitions
+data/                      Mock records and versioned O*NET source data
+  onet31.0 02.10.26/       O*NET 31.0 SQL files and source note
+Queries/                   Basic, advanced, and SELECT examples
+docs/                      Assignment briefs and entity-relationship diagram
+README.md                  Setup, data, and query guide
 ```
 
 ## Requirements
@@ -33,20 +33,20 @@ From the MySQL client, run the scripts in this order:
 
 1. `schema/Schema.sql` creates the core project tables.
 2. `data/MockData.sql` inserts the illustrative project records. It expects the schema's auto-increment IDs to start from an empty database.
-3. `data/onet31.0/23_software_skills.sql` creates and loads the O*NET `software_skills` table.
-4. `data/onet31.0/36_job_titles.sql` creates and loads the O*NET `job_titles` table.
-5. Run either query file after both data sources have loaded.
+3. `data/onet31.0 02.10.26/23_software_skills.sql` creates and loads O*NET database table 23, `software_skills`.
+4. `data/onet31.0 02.10.26/36_job_titles.sql` creates and loads O*NET database table 36, `job_titles`.
+5. Run the query files after both data sources have loaded.
 
-For example, when using the interactive MySQL client from the repository root:
+For example, from the repository root in the interactive MySQL client:
 
 ```sql
 SOURCE schema/Schema.sql;
 SOURCE data/MockData.sql;
-SOURCE data/onet31.0/23_software_skills.sql;
-SOURCE data/onet31.0/36_job_titles.sql;
+SOURCE data/onet31.0 02.10.26/23_software_skills.sql;
+SOURCE data/onet31.0 02.10.26/36_job_titles.sql;
 ```
 
-The scripts are intended for a fresh database. To reload from scratch, drop and recreate `ai_employment` before repeating the steps; the O*NET scripts include `CREATE TABLE` statements and are not designed to be run twice against already-created tables.
+The scripts are intended for a fresh database. To reload from scratch, drop and recreate `ai_employment`; the O*NET scripts include `CREATE TABLE` statements and are not designed to run twice against existing tables.
 
 ## Data Model
 
@@ -57,24 +57,30 @@ The core schema models:
 - `Worker`: associates a worker and salary with a company and occupation.
 - `Skill`: stores project skills and their AI-complementarity ratings by occupation.
 - `AI_Technology` and `Company_AI_Technology`: represent AI technologies and each company's adoption status and date.
-- O*NET `job_titles` and `software_skills`: imported occupation reference data. These tables are created by their supplied O*NET SQL files, not by the core schema.
+- O*NET `job_titles` and `software_skills`: imported occupation reference data. Their supplied SQL files create and load these tables.
 
-`Occupation.onetsoc_code` is the join key to `job_titles.onetsoc_code` and `software_skills.onetsoc_code`. This SOC code connects a project's occupation to O*NET's occupation records; one occupation can have many alternate titles and many software-skill records. The advanced queries demonstrate both joins.
+## O*NET Integration
+
+The O*NET tables replace the project's original occupation-title and software-skill tables. Unlike the project's internal relationships, which use `occupation_id`, O*NET identifies occupations with standardized `onetsoc_code` values. The O*NET tables retain their supplied structure, and the project `Occupation` table stores this code so its records can join to O*NET without assigning internal IDs to the external records.
+
+`Occupation.onetsoc_code` is the join key to `job_titles.onetsoc_code` and `software_skills.onetsoc_code`. These are one-to-many relationships: an occupation may have multiple alternate titles and multiple software-skill records. The advanced query examples demonstrate both joins.
 
 ## Query Guide
 
-`queries/BasicQueries.sql` contains short examples for inspecting `Industry` and `Company`, listing companies and occupations with their industry, and listing companies with their adopted AI technologies. It also demonstrates filtering occupations by AI-exposure score and workers by salary. The salary example uses a threshold above 100,000; the current mock salaries are all below that threshold, so that query returns no rows unless the data or threshold changes.
+`Queries/BasicQueries.sql` contains examples for inspecting industries and companies, joining companies and occupations to their industries, listing adopted technologies, and filtering occupations by AI-exposure score or workers by salary. Its salary threshold is above 100,000; the current mock salaries are all below that amount, so that query returns no rows unless the data or threshold changes.
 
-`queries/AdvancedQueries.sql` demonstrates:
+`Queries/AdvancedQueries.sql` demonstrates average salary and worker counts by occupation, average exposure by industry, company technology adoption details, counts of hot technologies and in-demand skills, and joins from project occupations to O*NET job titles and software skills. In O*NET's `software_skills` table, `hot_technology` and `in_demand` use `Y`/`N` values.
 
-- Average salary and worker count by occupation.
-- Average AI-exposure score by industry.
-- AI technologies adopted by each company, including adoption date and status.
-- Counts of hot technologies by occupation and counts of occupations listing each in-demand software skill.
-- Two one-to-many joins from project occupations to O*NET: alternate job titles and software-skill examples, matched using `onetsoc_code`.
+`Queries/SelectQueries.sql` contains two additional SELECT examples. The author of each query is identified in both the SQL file and the list below.
 
-In O*NET's `software_skills` table, `hot_technology` and `in_demand` use `Y`/`N` values. The advanced query filters hot technologies using `Y`.
+| Query | What it returns | Author |
+| --- | --- | --- |
+| `BasicQueries.sql` examples | Basic table reads, joins, and filters | `celinereintjes` (as recorded by Git history) |
+| `AdvancedQueries.sql` original examples | Aggregations and company technology adoption | `Andre` (as recorded by Git history) |
+| `AdvancedQueries.sql` O*NET joins and hot-technology filter update | O*NET titles/software skills joined by SOC code; hot-technology counts | GitHub Copilot |
+| `SelectQueries.sql` Query 1 | Occupations with industry and AI-exposure score | GitHub Copilot |
+| `SelectQueries.sql` Query 2 | O*NET software-skill examples joined to project occupations | GitHub Copilot |
 
 ## O*NET Source and Attribution
 
-The project uses O*NET database version 31.0. Source URLs, publisher, license, download-date status, table descriptions, and row counts are recorded in [`data/onet31.0/Sources.txt`](data/onet31.0/Sources.txt).
+The project uses O*NET database version 31.0, stored in the `onet31.0 02.10.26` folder. The folder's date is not confirmed as the download date. Publisher, license, trademark notice, source links, table descriptions, and row counts are recorded in [`data/onet31.0 02.10.26/Sources.txt`](data/onet31.0%2002.10.26/Sources.txt).
