@@ -112,3 +112,15 @@ WHERE o.ai_exposure_score >= 70
     AND w.salary > (SELECT AVG(salary) FROM Worker)
 ORDER BY w.salary DESC;
 
+-- Occupations with skills that work best with AI by Michelle Zefanya
+SELECT
+    o.occupation_name,
+    i.industry_name,
+    s.skill_name,
+    s.ai_complementarity_rating
+FROM Skill s
+JOIN Occupation o
+    ON s.occupation_id = i.industry_id
+WHERE s.ai_complementarity_rating >= 70.00
+ORDER BY s.ai_complementarity_rating DESC;
+
