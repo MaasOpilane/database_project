@@ -73,13 +73,6 @@ The O*NET tables replace the project's original occupation-title and software-sk
 
 `Queries/SelectQueries.sql` contains two additional SELECT examples. The author of each query is identified in both the SQL file and the list below.
 
-| Query | What it returns | Author |
-| --- | --- | --- |
-| `BasicQueries.sql` examples | Basic table reads, joins, and filters | `celinereintjes` (as recorded by Git history) |
-| `AdvancedQueries.sql` original examples | Aggregations and company technology adoption | `Andre` (as recorded by Git history) |
-| `AdvancedQueries.sql` O*NET joins and hot-technology filter update | O*NET titles/software skills joined by SOC code; hot-technology counts | GitHub Copilot |
-| `SelectQueries.sql` Query 1 | Occupations with industry and AI-exposure score | GitHub Copilot |
-| `SelectQueries.sql` Query 2 | O*NET software-skill examples joined to project occupations | GitHub Copilot |
 
 ## O*NET Source and Attribution
 

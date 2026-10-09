@@ -1,4 +1,4 @@
---Average salary by occupation
+Average salary by occupation
 SELECT
     o.occupation_name,
     COUNT(w.worker_id) AS number_of_workers,
@@ -9,7 +9,7 @@ JOIN Worker w
 GROUP BY o.occupation_id, o.occupation_name
 ORDER BY average_salary DESC;
 
---Highest AI exposure industries
+Highest AI exposure industries
 SELECT
     i.industry_name,
     AVG(o.ai_exposure_score) AS average_ai_exposure
@@ -19,7 +19,7 @@ JOIN Occupation o
 GROUP BY i.industry_id, i.industry_name
 ORDER BY average_ai_exposure DESC;
 
---AI technologies used by each company
+AI technologies used by each company
 SELECT
     c.company_name,
     a.technology_name,
@@ -32,7 +32,7 @@ JOIN AI_Technology a
     ON cat.technology_id = a.technology_id
 ORDER BY c.company_name;
 
---Occupations with the most hot technologies
+Occupations with the most hot technologies
 SELECT
     o.occupation_name,
     COUNT(*) AS hot_technologies
@@ -44,7 +44,7 @@ GROUP BY o.occupation_id, o.occupation_name
 ORDER BY hot_technologies DESC;
 
 
--- In-demand software skills by occupation
+In-demand software skills by occupation
 SELECT
     software_name,
     COUNT(DISTINCT occupation_id) AS occupations
@@ -53,7 +53,7 @@ WHERE in_demand = TRUE
 GROUP BY software_name
 ORDER BY occupations DESC;
 
--- O*NET alternate job titles for occupations in this project
+O*NET alternate job titles for occupations in this project
 SELECT
     o.occupation_name,
     o.onetsoc_code,
@@ -64,7 +64,7 @@ JOIN job_titles jt
     ON o.onetsoc_code = jt.onetsoc_code
 ORDER BY o.occupation_name, jt.job_title;
 
--- O*NET software skills associated with occupations in this project
+O*NET software skills associated with occupations in this project
 SELECT
     o.occupation_name,
     o.onetsoc_code,
@@ -75,3 +75,26 @@ FROM Occupation o
 JOIN software_skills ss
     ON o.onetsoc_code = ss.onetsoc_code
 ORDER BY o.occupation_name, ss.workplace_example;
+
+ Occupations with industry and AI-exposure score  Celine Reintjes
+SELECT
+    o.occupation_name,
+    i.industry_name,
+    o.ai_exposure_score
+FROM Occupation o
+JOIN Industry i
+    ON o.industry_id = i.industry_id
+ORDER BY o.ai_exposure_score DESC;
+
+ O*NET software skills for project occupations  Celine Reintjes
+SELECT
+    o.occupation_name,
+    o.onetsoc_code,
+    ss.workplace_example AS software_or_technology,
+    ss.hot_technology,
+    ss.in_demand
+FROM Occupation o
+JOIN software_skills ss
+    ON o.onetsoc_code = ss.onetsoc_code
+ORDER BY o.occupation_name, ss.workplace_example
+LIMIT 100;
