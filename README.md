@@ -78,7 +78,7 @@ The project uses O*NET database version 31.0, stored in the `onet31.0 02.10.26` 
 
 ## Reflection and Future Work
 
-## Project Reflection
+### Project Reflection
 Throughout this project, our relational database evolved with the combination of real-world dataset benchmarks: 
 
 1. **Integration of O*NET Data:** We incorporated official O*NET 31.0 tables. Mapping customs occupations to standardised values allowed for real-world skills evaluation that worked with the 3NF structure.
