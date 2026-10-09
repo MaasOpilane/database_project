@@ -166,3 +166,36 @@ JOIN Worker w
 JOIN Occupation o
     ON w.occupation_id = o.occupation_id
 ORDER BY o.ai_exposure_score DESC
+
+-- Most common AI technologies across companies by Simon Tepper
+SELECT
+    a.technology_name,
+    a.technology_type,
+    COUNT(cat.company_id) AS number_of_companies
+FROM AI_Technology a
+JOIN Company_AI_Technology cat
+    ON a.technology_id = cat.technology_id
+GROUP BY
+    a.technology_id,
+    a.technology_name,
+    a.technology_type
+ORDER BY number_of_companies DESC;
+
+
+-- Companies with the most workers by Simon Tepper
+SELECT
+    c.company_name,
+    i.industry_name,
+    c.company_size,
+    COUNT(w.worker_id) AS recorded_workers
+FROM Company c
+JOIN Industry i
+    ON c.industry_id = i.industry_id
+LEFT JOIN Worker w
+    ON c.company_id = w.company_id
+GROUP BY
+    c.company_id,
+    c.company_name,
+    i.industry_name,
+    c.company_size
+ORDER BY recorded_workers DESC;
