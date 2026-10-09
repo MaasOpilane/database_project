@@ -9,7 +9,7 @@ The salaries, AI adoption records, skills, and AI exposure scores in `data/MockD
 ```text
 schema/                    Core project table definitions
 data/                      Mock records and versioned O*NET source data
-  onet31.0 02.10.26/       O*NET 31.0 SQL files and source note
+onet31.0/                  O*NET 31.0 SQL files and source note
 Queries/                   Basic, advanced, and SELECT examples
 docs/                      Assignment briefs and entity-relationship diagram
 README.md                  Setup, data, and query guide
@@ -33,8 +33,8 @@ From the MySQL client, run the scripts in this order:
 
 1. `schema/Schema.sql` creates the core project tables.
 2. `data/MockData.sql` inserts the illustrative project records. It expects the schema's auto-increment IDs to start from an empty database.
-3. `data/onet31.0 02.10.26/23_software_skills.sql` creates and loads O*NET database table 23, `software_skills`.
-4. `data/onet31.0 02.10.26/36_job_titles.sql` creates and loads O*NET database table 36, `job_titles`.
+3. `data/onet31.0/23_software_skills.sql` creates and loads O*NET database table 23, `software_skills`.
+4. `data/onet31.0/36_job_titles.sql` creates and loads O*NET database table 36, `job_titles`.
 5. Run the query files after both data sources have loaded.
 
 For example, from the repository root in the interactive MySQL client:
@@ -42,8 +42,8 @@ For example, from the repository root in the interactive MySQL client:
 ```sql
 SOURCE schema/Schema.sql;
 SOURCE data/MockData.sql;
-SOURCE data/onet31.0 02.10.26/23_software_skills.sql;
-SOURCE data/onet31.0 02.10.26/36_job_titles.sql;
+SOURCE data/onet31.0/23_software_skills.sql;
+SOURCE data/onet31.0/36_job_titles.sql;
 ```
 
 The scripts are intended for a fresh database. To reload from scratch, drop and recreate `ai_employment`; the O*NET scripts include `CREATE TABLE` statements and are not designed to run twice against existing tables.
@@ -74,4 +74,4 @@ The O*NET tables replace the project's original occupation-title and software-sk
 
 ## O*NET Source and Attribution
 
-The project uses O*NET database version 31.0, stored in the `onet31.0 02.10.26` folder. The folder's date is not confirmed as the download date. Publisher, license, trademark notice, source links, table descriptions, and row counts are recorded in [`data/onet31.0 02.10.26/Sources.txt`](data/onet31.0%2002.10.26/Sources.txt).
+The project uses O*NET database version 31.0, stored in the `onet31.0` folder. Publisher, license, trademark notice, source links, table descriptions, and row counts are recorded in`data/onet31.0/Sources.txt`

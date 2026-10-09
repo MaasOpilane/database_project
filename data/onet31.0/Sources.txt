@@ -3,7 +3,7 @@ O*NET Database 31.0
 Publisher: O*NET Resource Center, sponsored by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA).
 License: Creative Commons Attribution 4.0 International (CC BY 4.0).
 Trademark: O*NET® is a trademark of USDOL/ETA.
-Download date: Not recorded. The folder name includes a date, but the project does not identify it as the download date.
+Download date: 02.10.26
 
 Source: https://www.onetcenter.org/database.html#individual-files
 License text: https://creativecommons.org/licenses/by/4.0/
