@@ -69,9 +69,7 @@ The O*NET tables replace the project's original occupation-title and software-sk
 
 `Queries/BasicQueries.sql` contains examples for inspecting industries and companies, joining companies and occupations to their industries, listing adopted technologies, and filtering occupations by AI-exposure score or workers by salary. Its salary threshold is above 100,000; the current mock salaries are all below that amount, so that query returns no rows unless the data or threshold changes.
 
-`Queries/AdvancedQueries.sql` demonstrates average salary and worker counts by occupation, average exposure by industry, company technology adoption details, counts of hot technologies and in-demand skills, and joins from project occupations to O*NET job titles and software skills. In O*NET's `software_skills` table, `hot_technology` and `in_demand` use `Y`/`N` values.
-
-`Queries/SelectQueries.sql` contains two additional SELECT examples. The author of each query is identified in both the SQL file and the list below.
+`Queries/AdvancedQueries.sql` demonstrates average salary and worker counts by occupation, average exposure by industry, company technology adoption details, counts of hot technologies and in-demand skills, and joins from project occupations to O*NET job titles and software skills. In O*NET's `software_skills` table, `hot_technology` and `in_demand` use `Y`/`N` values. It also contains additional SELECT examples with authors identified. 
 
 
 ## O*NET Source and Attribution
