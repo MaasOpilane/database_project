@@ -75,3 +75,20 @@ The O*NET tables replace the project's original occupation-title and software-sk
 ## O*NET Source and Attribution
 
 The project uses O*NET database version 31.0, stored in the `onet31.0 02.10.26` folder. The folder's date is not confirmed as the download date. Publisher, license, trademark notice, source links, table descriptions, and row counts are recorded in [`data/onet31.0 02.10.26/Sources.txt`](data/onet31.0%2002.10.26/Sources.txt).
+
+## Reflection and Future Work
+
+## Project Reflection
+Throughout this project, our relational database evolved with the combination of real-world dataset benchmarks: 
+
+1. **Integration of O*NET Data:** We incorporated official O*NET 31.0 tables. Mapping customs occupations to standardised values allowed for real-world skills evaluation that worked with the 3NF structure.
+2. Our design assumes that AI impacts labor markets through task-level transformation and skill augmentation instead of immediate job elimination.
+
+### Limitations
+- **Static Data Snapshot:** The database does not represent dynamic tracking of real-time labor changes.
+- **Qualitative Metrics:** While numerical values quantify task exposure scores and salary levels, worker attributes (eg. leadership, team dynamics) stay outside the scope.
+
+### Next Steps & Future Work
+1. **Interactive Visualization Layer:** Connect SQL query outputs to a visual dashboard tool to display AI exposure metrics in interactive graphs for non-technical stakeholders.
+2. **Live Data API Ingestion:** Replace static SQL data imports with live API pipelines (e.g., job portal feeds or live O*NET Web Services) to update skill demand and salary metrics continuously.
+
