@@ -33,29 +33,31 @@ VALUES
     (5, 'Krakow Academic Services', 185),
     (5, 'FutureLearn Poland', 240);
 
+
 INSERT INTO Occupation
-(industry_id, occupation_name, ai_exposure_score)
+(industry_id, occupation_name, onetsoc_code, ai_exposure_score)
 VALUES
 
-    (1, 'Software Developer', 82.50),
-    (1, 'Data Analyst', 88.00),
-    (1, 'IT Project Manager', 68.00),
+    (1, 'Software Developer', '15-1252.00', 82.50),
+    (1, 'Data Analyst', '15-2051.00', 88.00),
+    (1, 'IT Project Manager', '11-3021.00', 68.00),
 
-    (2, 'Nurse', 38.00),
-    (2, 'Medical Assistant', 45.00),
-    (2, 'Healthcare Data Analyst', 78.50),
+    (2, 'Nurse', '29-1141.00', 38.00),
+    (2, 'Medical Assistant', '31-9092.00', 45.00),
+    (2, 'Healthcare Data Analyst', '15-1211.01', 78.50),
 
-    (3, 'Accountant', 85.50),
-    (3, 'Financial Analyst', 91.00),
-    (3, 'Risk Manager', 72.00),
+    (3, 'Accountant', '13-2011.00', 85.50),
+    (3, 'Financial Analyst', '13-2051.00', 91.00),
+    (3, 'Risk Manager', '13-2054.00', 72.00),
 
-    (4, 'Production Engineer', 70.00),
-    (4, 'Machine Operator', 82.00),
-    (4, 'Quality Control Specialist', 64.00),
+    (4, 'Production Engineer', '17-2112.00', 70.00),
+    (4, 'Machine Operator', '51-2092.00', 82.00),
+    (4, 'Quality Control Specialist', '51-9061.00', 64.00),
 
-    (5, 'Teacher', 42.00),
-    (5, 'Education Coordinator', 55.00),
-    (5, 'Instructional Designer', 73.00);
+    (5, 'Teacher', '25-2021.00', 42.00),
+    (5, 'Education Coordinator', '25-9031.00', 55.00),
+    (5, 'Instructional Designer', '25-9031.00', 73.00);
+
 
 INSERT INTO Skill
 (occupation_id, skill_name, ai_complementarity_rating)

@@ -78,9 +78,6 @@ CREATE TABLE job_titles (
     job_title VARCHAR(250) NOT NULL,
     short_title VARCHAR(150),
     sources VARCHAR(50) NOT NULL,
-
-    FOREIGN KEY (onetsoc_code)
-        REFERENCES Occupation(onetsoc_code)
 );
 
 CREATE TABLE software_skills (
