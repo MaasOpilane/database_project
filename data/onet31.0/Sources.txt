@@ -1,0 +1,15 @@
+O*NET Database 31.0
+
+Publisher: O*NET Resource Center, sponsored by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA).
+License: Creative Commons Attribution 4.0 International (CC BY 4.0).
+Trademark: O*NET® is a trademark of USDOL/ETA.
+Download date: Not recorded in the project files. The local file modification date is not treated as the download date.
+
+Source: https://www.onetcenter.org/database.html#individual-files
+License text: https://creativecommons.org/licenses/by/4.0/
+
+Files and imported tables:
+- 23_software_skills.sql -> software_skills (O*NET database table 23, Software Skills): 31,821 data rows.
+- 36_job_titles.sql -> job_titles (O*NET database table 36, Job Titles): 54,269 data rows.
+
+The row counts count INSERT statements in these SQL files, not the CREATE TABLE statements. Both files are supplied as SQL table creation and data-load scripts.

@@ -1,3 +1,0 @@
-Both databases are from O*NET Recource Center, by the US Department of Labor, Employment and Training Administration (USDOL/ETA). Used under the CC BY 4.0 license. O*NET® is a trademark of USDOL/ETA.
-https://www.onetcenter.org/database.html#individual-files
-https://creativecommons.org/licenses/by/4.0/

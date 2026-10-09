@@ -72,17 +72,3 @@ CREATE TABLE Company_AI_Technology (
     FOREIGN KEY (technology_id)
         REFERENCES AI_Technology(technology_id)
 );
-
-CREATE TABLE job_titles (
-    onetsoc_code VARCHAR(10) NOT NULL,
-    job_title VARCHAR(250) NOT NULL,
-    short_title VARCHAR(150),
-    sources VARCHAR(50) NOT NULL,
-);
-
-CREATE TABLE software_skills (
-  onetsoc_code CHARACTER(10) NOT NULL,
-  workplace_example CHARACTER VARYING(150) NOT NULL,
-  element_id CHARACTER VARYING(20) NOT NULL,
-  hot_technology CHARACTER(1) NOT NULL,
-  in_demand CHARACTER(1) NOT NULL);

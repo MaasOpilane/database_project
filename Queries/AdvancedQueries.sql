@@ -39,7 +39,7 @@ SELECT
 FROM Occupation o
 JOIN Software_Skill ss
     ON o.occupation_id = ss.occupation_id
-WHERE ss.hot_technology = TRUE
+WHERE ss.hot_technology = 'Y'
 GROUP BY o.occupation_id, o.occupation_name
 ORDER BY hot_technologies DESC;
 
@@ -52,3 +52,26 @@ FROM Software_Skill
 WHERE in_demand = TRUE
 GROUP BY software_name
 ORDER BY occupations DESC;
+
+-- O*NET alternate job titles for occupations in this project
+SELECT
+    o.occupation_name,
+    o.onetsoc_code,
+    jt.job_title,
+    jt.short_title
+FROM Occupation o
+JOIN job_titles jt
+    ON o.onetsoc_code = jt.onetsoc_code
+ORDER BY o.occupation_name, jt.job_title;
+
+-- O*NET software skills associated with occupations in this project
+SELECT
+    o.occupation_name,
+    o.onetsoc_code,
+    ss.workplace_example AS software_or_technology,
+    ss.hot_technology,
+    ss.in_demand
+FROM Occupation o
+JOIN software_skills ss
+    ON o.onetsoc_code = ss.onetsoc_code
+ORDER BY o.occupation_name, ss.workplace_example;
